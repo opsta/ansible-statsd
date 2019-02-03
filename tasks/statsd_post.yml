@@ -1,0 +1,19 @@
+---
+- name: Create Systemd unit file
+  template:
+    src: statsd.service.j2
+    dest: /lib/systemd/system/statsd.service
+    mode: 0644
+  register: statsd_systemd
+
+- name: Drop StatsD configuration file
+  template:
+    src: config.js.j2
+    dest: "{{ statsd_config_file_path }}"
+
+- name: Ensure StatsD started and enabled
+  systemd:
+    name: statsd
+    state: started
+    enabled: yes
+    daemon_reload: yes

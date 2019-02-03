@@ -1,0 +1,16 @@
+[Unit]
+Description=StatsD server
+Documentation=https://github.com/etsy/statsd
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+ConditionPathExists={{ statsd_install_path }}
+
+[Service]
+Type=simple
+PIDFile=/var/run/statsd.pid
+User={{ statsd_user }}
+Group={{ statsd_group }}
+ExecStart=/usr/bin/nodejs {{ statsd_install_path }}/stats.js {{ statsd_config_file_path }}
+
+[Install]
+WantedBy=multi-user.target

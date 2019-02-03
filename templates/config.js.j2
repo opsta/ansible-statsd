@@ -1,0 +1,9 @@
+{
+  "graphiteHost": "{{ statsd_graphite_host }}",
+  "graphitePort": {{ statsd_graphite_port }},
+  "port": {{ statsd_port }},
+  "flushInterval": {{ statsd_flush_interval }},
+  "servers": [
+    { server: "./servers/{{ statsd_protocol }}", address: "0.0.0.0", port: {{ statsd_port }} }
+  ]
+}

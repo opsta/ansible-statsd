@@ -1,0 +1,4 @@
+---
+- include_tasks: statsd_pre.yml
+- include_tasks: statsd_install.yml
+- include_tasks: statsd_post.yml

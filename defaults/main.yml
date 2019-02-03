@@ -1,0 +1,14 @@
+---
+statsd_version: v0.8.0
+statsd_download_url: https://github.com/etsy/statsd/archive/{{ statsd_version }}.tar.gz
+statsd_install_path: /opt/statsd
+statsd_config_file_path: /opt/statsd/config.js
+
+statsd_user: statsd
+statsd_group: statsd
+
+statsd_port: 8125
+statsd_protocol: udp
+statsd_flush_interval: 10000
+statsd_graphite_host: 127.0.0.1
+statsd_graphite_port: 2003
